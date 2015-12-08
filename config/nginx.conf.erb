@@ -41,5 +41,11 @@ http {
 			proxy_redirect off;
 			proxy_pass http://app_server;
 		}
+
+		location /blog/ {
+      proxy_redirect off;
+      proxy_pass <%= ENV['BLOG_URL'] %>;
+      client_max_body_size 50M;
+    }
 	}
 }
